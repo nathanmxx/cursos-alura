@@ -1,13 +1,19 @@
 # Cursos Alura
 
-Repositório com as atividades e exercícios dos cursos que estou fazendo na Alura Plus, organizados por assunto.
+Diário de estudos com as atividades e projetos dos cursos que faço na **Alura Plus**, organizados por área (Escola) → curso, na ordem em que as trilhas ensinam.
 
-## Trilha de estudos
+## Áreas
 
-- [`git-e-github/`](./git-e-github) — Formação Git e GitHub
-- [`oracle-sql/`](./oracle-sql) — Formação Oracle: SQL e PL/SQL
-- [`javascript-typescript/`](./javascript-typescript) — JavaScript moderno (ES6+) e TypeScript
-- [`react/`](./react) — Formação React com JavaScript
-- [`laravel-mvc/`](./laravel-mvc) — Laravel: criando uma aplicação com MVC
-- [`docker-cloud/`](./docker-cloud) — Docker e fundamentos de Cloud (AWS)
-- [`machine-learning/`](./machine-learning) — Machine Learning na prática com Python
+| Área | Trilha / foco | Status |
+|------|---------------|--------|
+| [`devops/`](./devops) | Fundamentos de DevOps: Linux, Shell, automação, monitoramento, Git e Docker | 🟡 em andamento |
+| [`banco-de-dados/`](./banco-de-dados) | Oracle: SQL e PL/SQL | ⚪ a começar |
+| [`front-end/`](./front-end) | JavaScript moderno, TypeScript e React | ⚪ a começar |
+| [`back-end/`](./back-end) | Laravel (PHP) com MVC | ⚪ a começar |
+| [`data-science/`](./data-science) | Machine Learning com Python | ⚪ a começar |
+
+Legenda: ✅ concluído · 🟡 em andamento · ⚪ a começar
+
+## Como está organizado
+
+Cada pasta de área tem um `README.md` próprio listando os cursos daquela trilha e os certificados conquistados. Dentro de cada área, os cursos são numerados (`01-`, `02-`...) na ordem em que a Alura ensina, e cada um guarda os exercícios e projetos daquele curso.
