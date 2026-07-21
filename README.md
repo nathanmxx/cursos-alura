@@ -4,7 +4,7 @@ Diário de estudos com as atividades e projetos dos cursos que faço na **Alura 
 
 ## Trilhas
 
-- [`Trilha-DevOps/`](./Trilha-DevOps) — 🟡 em andamento
+- [`Trilha-DevOps/`](./Trilha-DevOps) — 
   - `DevOps-explorando-conceitos-comandos-e-scripts-no-linux-CLI/`
   - `DevOps-trabalhando-com-trafego-seguro-em-comunicacoes-web/`
   - `DevOps-trabalhando-com-repositorios-no-github/`
