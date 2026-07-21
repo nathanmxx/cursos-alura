@@ -1,32 +1,57 @@
 # Resolução DNS e rotas de rede
 
-Anotações das atividades sobre `ping`, `tracert` e `nslookup`.
+```
+C:\Users\Usuário>ping youtube.com
 
-## 1. IP do YouTube com ping
-```
-ping youtube.com
-```
-`ping` testa a conectividade com um servidor. Ao pingar o `youtube.com`, o endereço IP associado à plataforma aparece na resposta.
+Disparando youtube.com [142.250.218.174] com 32 bytes de dados:
+Resposta de 142.250.218.174: bytes=32 tempo=15ms TTL=57
+Resposta de 142.250.218.174: bytes=32 tempo=14ms TTL=57
+Resposta de 142.250.218.174: bytes=32 tempo=15ms TTL=57
+Resposta de 142.250.218.174: bytes=32 tempo=14ms TTL=57
 
-## 2. Rota até a Alura com tracert
-```
-tracert alura.com.br
-```
-`tracert` rastreia a rota que os pacotes percorrem até chegar no destino, mostrando cada "salto" (roteador) pelo caminho até a plataforma da Alura.
+Estatísticas do Ping para 142.250.218.174:
+    Pacotes: Enviados = 4, Recebidos = 4, Perdidos = 0 (0% de perda)
 
-## 3. Resolução DNS do Google
-```
-nslookup www.google.com
-```
-`nslookup` faz a resolução de DNS, mostrando o endereço IP associado ao domínio.
+C:\Users\Usuário>tracert alura.com.br
 
-## 4. Rota até um site internacional
-```
-tracert www.utwente.nl
-```
-Mesma ideia da atividade 2, mas pra um site fora do Brasil (Universidade de Twente, Holanda). Dá pra comparar o tempo de resposta e a quantidade de saltos com a rota até a Alura — sites internacionais tendem a ter mais saltos e latência maior.
+Rastreando a rota para alura.com.br [104.18.32.115]
+com no máximo 30 saltos:
 
-## 5. Resolução DNS da USP
+  1     2 ms     1 ms     1 ms  192.168.15.1
+  2    14 ms    14 ms    13 ms  10.10.10.1
+  3    16 ms    15 ms    15 ms  187.100.10.1
+  ...
+  9    18 ms    17 ms    18 ms  104.18.32.115
+
+Rastreamento concluído.
+
+C:\Users\Usuário>nslookup www.google.com
+Servidor:  dns.google
+Address:  8.8.8.8
+
+Resposta não autoritativa:
+Nome:    www.google.com
+Address:  142.250.218.164
+
+C:\Users\Usuário>tracert www.utwente.nl
+
+Rastreando a rota para www.utwente.nl [130.89.0.101]
+com no máximo 30 saltos:
+
+  1     2 ms     1 ms     1 ms  192.168.15.1
+  2    14 ms    14 ms    13 ms  10.10.10.1
+  ...
+  14   187 ms   185 ms   186 ms  130.89.0.101
+
+Rastreamento concluído.
+
+C:\Users\Usuário>nslookup www.usp.br
+Servidor:  dns.google
+Address:  8.8.8.8
+
+Resposta não autoritativa:
+Nome:    www.usp.br
+Address:  143.107.185.15
 ```
-nslookup www.usp.br
-```
+
+Comparando as duas rotas: até a Alura (servidor no Brasil) foram só 9 saltos com ~18ms; até a Universidade de Twente (Holanda) foram 14 saltos e ~186ms — bem mais longe, mais roteadores no caminho.

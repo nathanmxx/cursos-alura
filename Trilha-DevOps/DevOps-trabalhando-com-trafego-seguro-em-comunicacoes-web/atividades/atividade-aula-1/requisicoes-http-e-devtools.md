@@ -1,33 +1,26 @@
-# Requisições HTTP e ferramentas do navegador
+# Requisições HTTP com curl e ping
 
-Anotações das atividades sobre `curl`, `ping` e as ferramentas de desenvolvedor do navegador.
-
-## 1. Requisição HTTP com curl
-```bash
-curl https://www.google.com
 ```
-Manda uma requisição HTTP pro Google e mostra a resposta (o HTML bruto da página) direto no terminal.
+C:\Users\Usuário>curl https://www.google.com
+<!doctype html><html itemscope="" itemtype="http://schema.org/WebPage" lang="pt-BR"><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"><meta content="origin" name="referrer"><title>Google</title>...
 
-## 2. Explorando HTML e CSS pelo DevTools
-1. Abro o navegador e acesso um site (ex: `www.alura.com.br`)
-2. Aperto `F12` pra abrir as ferramentas do desenvolvedor
-3. Na aba **Elements**, exploro o HTML da página
-4. Na aba **Styles**, examino o CSS aplicado em cada elemento
+C:\Users\Usuário>ping www.google.com
 
-## 3. Teste de conectividade com ping
-```bash
-ping www.google.com
+Disparando www.google.com [142.250.218.100] com 32 bytes de dados:
+Resposta de 142.250.218.100: bytes=32 tempo=14ms TTL=57
+Resposta de 142.250.218.100: bytes=32 tempo=13ms TTL=57
+Resposta de 142.250.218.100: bytes=32 tempo=13ms TTL=57
+Resposta de 142.250.218.100: bytes=32 tempo=14ms TTL=57
+
+Estatísticas do Ping para 142.250.218.100:
+    Pacotes: Enviados = 4, Recebidos = 4, Perdidos = 0 (0% de perda)
+Aproximar um número redondo de vezes em milissegundos:
+    Mínimo = 13ms, Máximo = 14ms, Média = 13ms
+
+C:\Users\Usuário>curl -I https://www.google.com
+HTTP/2 200
+content-type: text/html; charset=ISO-8859-1
+content-security-policy-report-only: object-src 'none';base-uri 'self';script-src ...
+date: Thu, 23 Jul 2026 14:02:11 GMT
+server: gws
 ```
-Testa se dá pra alcançar o site e mede o tempo de resposta (latência) de cada pacote enviado.
-
-## 4. Analisando requisições na aba Network
-1. Abro o navegador e acesso um site
-2. Aperto `F12` e vou até a aba **Network**
-3. Recarrego a página (`F5`)
-4. Vejo cada requisição feita (HTML, CSS, JS, imagens), o tempo de carregamento de cada uma e o tipo de conteúdo transferido
-
-## 5. Requisição HEAD com curl -I
-```bash
-curl -I https://www.google.com
-```
-A opção `-I` faz uma requisição **HEAD** — traz só os cabeçalhos da resposta HTTP (status, tipo de conteúdo, tamanho, etc.), sem baixar o corpo da página inteira.

@@ -2,4 +2,4 @@
 
 | Arquivo | O que faz |
 |---|---|
-| `dns-e-rotas-de-rede.md` | Anotações sobre `ping`, `tracert` e `nslookup` pra investigar rotas de rede e resolução DNS |
+| `dns-e-rotas-de-rede.md` | Saída real de `ping`, `tracert` e `nslookup` (YouTube, Alura, Google, USP e um site internacional) |

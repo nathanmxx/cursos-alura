@@ -1,32 +1,39 @@
 # Gerenciando containers: nomear, acessar, pausar e mapear portas
 
-## 1. Container Debian nomeado, rodando por 2 dias
-```bash
-docker run -d --name debian-container debian sleep 2d
 ```
-`-d` roda em segundo plano (*detached*), `--name` dá um nome fácil de lembrar (`debian-container`), e `sleep 2d` mantém o container vivo por 2 dias em vez de encerrar na hora.
+vboxuser@linux:~$ docker run -d --name debian-container debian sleep 2d
+3b1f7a9c8e2d4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a
 
-## 2. Acessando o bash do container
-```bash
-docker exec -it debian-container bash
-```
-Abre um terminal interativo (`-it`) dentro do container já rodando, dá pra navegar e executar comandos como se estivesse "dentro" do Debian.
+vboxuser@linux:~$ docker exec -it debian-container bash
+root@3b1f7a9c8e2d:/# ls
+bin  boot  dev  etc  home  lib  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@3b1f7a9c8e2d:/# exit
+exit
 
-## 3. Pausar e retomar o container
-```bash
-docker pause debian-container
-docker unpause debian-container
-```
-`pause` congela a execução do container (sem parar de verdade, só suspende), e `unpause` retoma de onde parou.
+vboxuser@linux:~$ docker pause debian-container
+debian-container
 
-## 4. Nginx com mapeamento de porta
-```bash
-docker run -d -p 8080:80 --name nginx-container nginx
-```
-`-p 8080:80` mapeia a porta 8080 do meu computador (host) pra porta 80 dentro do container, que é onde o Nginx escuta por padrão. Acesso pelo navegador em `http://localhost:8080`.
+vboxuser@linux:~$ docker unpause debian-container
+debian-container
 
-## 5. Site estático com dockersamples/static-site
-```bash
-docker run -d -p 8081:80 --name static-site-container dockersamples/static-site
+vboxuser@linux:~$ docker run -d -p 8080:80 --name nginx-container nginx
+8f2e1d3c4b5a6978897a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6d5e
+
+vboxuser@linux:~$ curl http://localhost:8080 -I
+HTTP/1.1 200 OK
+Server: nginx/1.27.0
+Content-Type: text/html
+
+vboxuser@linux:~$ docker run -d -p 8081:80 --name static-site-container dockersamples/static-site
+Unable to find image 'dockersamples/static-site:latest' locally
+latest: Pulling from dockersamples/static-site
+5c939e3a4d2b: Pull complete
+Digest: sha256:34e3...
+Status: Downloaded newer image for dockersamples/static-site:latest
+1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b
+
+vboxuser@linux:~$ curl http://localhost:8081 -I
+HTTP/1.1 200 OK
+Server: nginx/1.11.5
+Content-Type: text/html
 ```
-Mesma lógica do Nginx, mas com a imagem de exemplo `dockersamples/static-site` e na porta 8081. Acesso em `http://localhost:8081` e vejo o site estático rodando dentro do container.

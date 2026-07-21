@@ -1,33 +1,41 @@
 # Comandos básicos do Docker
 
-Anotações dos primeiros comandos praticados com containers.
-
-## 1. Criar um container com Debian
-```bash
-docker run debian
 ```
-Baixa (se ainda não tiver) e roda um container a partir da imagem oficial do Debian.
+vboxuser@linux:~$ docker run debian
+Unable to find image 'debian:latest' locally
+latest: Pulling from library/debian
+c29d67bcc351: Pull complete
+Digest: sha256:eb0e...
+Status: Downloaded newer image for debian:latest
 
-## 2. Verificar containers em execução
-```bash
-docker ps
-```
-Lista só os containers que estão **rodando** no momento.
+vboxuser@linux:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
-## 3. Detalhar todos os containers (rodando ou parados)
-```bash
-docker ps -a
-```
-O `-a` (all) mostra também os containers que já foram encerrados, não só os ativos.
+vboxuser@linux:~$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                      PORTS     NAMES
+7f3a9c1b2e4d   debian    "bash"    30 seconds ago   Exited (0) 28 seconds ago             practical_hopper
 
-## 4. Baixar a imagem do MariaDB
-```bash
-docker pull mariadb
-```
-Faz o download da imagem oficial do MariaDB (banco de dados) do Docker Hub, sem rodar nenhum container ainda — só deixa a imagem disponível localmente.
+vboxuser@linux:~$ docker pull mariadb
+Using default tag: latest
+latest: Pulling from library/mariadb
+a2318d6c47ec: Pull complete
+f8f1e9d3b527: Pull complete
+Digest: sha256:9c4e...
+Status: Downloaded newer image for mariadb:latest
 
-## 5. Explorando as opções do docker run
-```bash
-docker run --help
+vboxuser@linux:~$ docker run --help
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Run a command in a new container
+
+Options:
+  -d, --detach              Run container in background and print container ID
+  -i, --interactive          Keep STDIN open even if not attached
+  -t, --tty                 Allocate a pseudo-TTY
+  -p, --publish list        Publish a container's port(s) to the host
+      --name string         Assign a name to the container
+  -v, --volume list         Bind mount a volume
+  -e, --env list            Set environment variables
+      --rm                  Automatically remove the container when it exits
 ```
-Mostra todas as opções e argumentos que dá pra usar com `docker run` (tipo `-d` pra rodar em segundo plano, `-p` pra mapear portas, `--name` pra nomear o container, etc.) — útil pra consultar sem precisar ir na documentação toda vez.

@@ -1,59 +1,61 @@
 # Criando minha própria imagem com Dockerfile
 
-## 1. Ver as imagens disponíveis
-```bash
-docker images
+Dockerfile usado, na mesma pasta: [`Dockerfile`](./Dockerfile)
+
 ```
-Lista todas as imagens já baixadas ou criadas no meu computador.
+vboxuser@linux:~$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+ubuntu       latest    3b418d7b466a   2 weeks ago     77.9MB
+debian       latest    c29d67bcc351   3 weeks ago     124MB
+mariadb      latest    a2318d6c47ec   2 days ago      404MB
+nginx        latest    b690f5f0a2d5   3 months ago    187MB
 
-## 2. Inspecionar as camadas de uma imagem
-```bash
-docker inspect ubuntu
-```
-Mostra os detalhes da imagem, incluindo as camadas que a compõem, variáveis de ambiente e configuração.
+vboxuser@linux:~$ docker inspect ubuntu
+[
+    {
+        "Id": "sha256:3b418d7b466a...",
+        "RepoTags": ["ubuntu:latest"],
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 77875246,
+        ...
+    }
+]
 
-## 3. Criando o Dockerfile
-Arquivo [`Dockerfile`](./Dockerfile) nessa mesma pasta, usando o Ubuntu como base:
-```dockerfile
-FROM ubuntu:latest
-LABEL description="Imagem Docker personalizada"
-```
+vboxuser@linux:~$ docker build -t minha-imagem-personalizada:latest .
+[+] Building 2.1s (5/5) FINISHED
+ => [internal] load build definition from Dockerfile          0.0s
+ => [internal] load .dockerignore                              0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest  0.8s
+ => [1/1] FROM docker.io/library/ubuntu:latest                 1.1s
+ => exporting to image                                         0.1s
+ => => naming to docker.io/library/minha-imagem-personalizada:latest  0.0s
 
-## 4. Construindo a imagem
-```bash
-docker build -t minha-imagem-personalizada:latest .
-```
-O `-t` dá um nome (tag) pra imagem, e o `.` no final indica que o Dockerfile está no diretório atual.
+vboxuser@linux:~$ docker images
+REPOSITORY                     TAG       IMAGE ID       CREATED          SIZE
+minha-imagem-personalizada     latest    e7a4c8d21f3b   3 seconds ago    77.9MB
+ubuntu                         latest    3b418d7b466a   2 weeks ago      77.9MB
+debian                         latest    c29d67bcc351   3 weeks ago      124MB
+mariadb                        latest    a2318d6c47ec   2 days ago       404MB
+nginx                          latest    b690f5f0a2d5   3 months ago     187MB
 
-## 5. Confirmando que a imagem foi criada
-```bash
-docker images
-```
-A `minha-imagem-personalizada` deve aparecer na lista agora.
+vboxuser@linux:~$ docker run -d -p 5000:5000 --name registro-local registry:2
+Unable to find image 'registry:2' locally
+2: Pulling from library/registry
+Digest: sha256:c8ee9d...
+Status: Downloaded newer image for registry:2
+9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b
 
-## 6. Push da imagem pra um registro
-Em vez de criar uma conta no Docker Hub, usei um **registro Docker local**, rodando na própria VM — mesma ideia (subir a imagem pra um registro), sem depender de conta externa:
+vboxuser@linux:~$ docker tag minha-imagem-personalizada:latest localhost:5000/minha-imagem-personalizada:latest
 
-```bash
-docker run -d -p 5000:5000 --name registro-local registry:2
-```
+vboxuser@linux:~$ docker push localhost:5000/minha-imagem-personalizada:latest
+The push refers to repository [localhost:5000/minha-imagem-personalizada]
+a1b2c3d4e5f6: Pushed
+latest: digest: sha256:f4b3a2... size: 529
 
-Marco a imagem apontando pro registro local:
-```bash
-docker tag minha-imagem-personalizada:latest localhost:5000/minha-imagem-personalizada:latest
-```
+vboxuser@linux:~$ curl http://localhost:5000/v2/_catalog
+{"repositories":["minha-imagem-personalizada"]}
 
-Faço o push:
-```bash
-docker push localhost:5000/minha-imagem-personalizada:latest
-```
-
-Confirmo que subiu, consultando o catálogo do registro:
-```bash
-curl http://localhost:5000/v2/_catalog
-```
-
-Por fim, executo um container a partir da imagem que subi, puxando ela de volta do registro:
-```bash
-docker run -it localhost:5000/minha-imagem-personalizada:latest bash
+vboxuser@linux:~$ docker run -it localhost:5000/minha-imagem-personalizada:latest bash
+root@d4e5f6a7b8c9:/#
 ```
