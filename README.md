@@ -4,11 +4,11 @@ Diário de estudos com as atividades e projetos dos cursos que faço na **Alura 
 
 ## Trilhas
 
-- [`Trilha-DevOps/`](./Trilha-DevOps) — ✅ concluída
-  - `DevOps-explorando-conceitos-comandos-e-scripts-no-linux-CLI/`
-  - `DevOps-trabalhando-com-trafego-seguro-em-comunicacoes-web/`
-  - `DevOps-trabalhando-com-repositorios-no-github/`
-  - `DevOps-construindo-e-gerindo-containers-com-docker/`
+- [`trilha-devops/`](./trilha-devops) — ✅ concluída
+  - `linux-cli/`
+  - `comunicacoes-web/`
+  - `git-github/`
+  - `docker/`
 
 ## Certificados
 
