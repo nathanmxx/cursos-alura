@@ -1,0 +1,25 @@
+# Exemplo de workflow do GitHub Actions.
+# No projeto real, esse arquivo vai em: .github/workflows/ci-cd-docker.yml
+
+name: CI/CD com Docker
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do Codigo
+        uses: actions/checkout@v2
+
+      - name: Build da Imagem Docker
+        run: docker build -t minha-imagem-personalizada .
+
+      - name: Login no Docker Hub
+        run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
+
+      - name: Push da Imagem Docker
+        run: docker push minha-imagem-personalizada

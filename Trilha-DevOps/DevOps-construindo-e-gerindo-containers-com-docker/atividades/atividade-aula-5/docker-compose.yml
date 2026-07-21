@@ -1,0 +1,6 @@
+version: "3.9"
+services:
+  app:
+    image: minha-imagem-personalizada
+    ports:
+      - "8080:80"
