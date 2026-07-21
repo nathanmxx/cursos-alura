@@ -8,7 +8,7 @@ Diário de estudos com as atividades e projetos dos cursos que faço na **Alura*
   - `linux-cli/`
   - `comunicacoes-web/`
   - `git-github/`
-  - `docker/`
+  - `docker-e-containers/`
 
 ## Certificados
 
