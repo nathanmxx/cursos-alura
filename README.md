@@ -1,10 +1,10 @@
 # Cursos Alura
 
-Diário de estudos com as atividades e projetos dos cursos que faço na **Alura Plus**, organizados por trilha, com uma pasta por curso.
+Diário de estudos com as atividades e projetos dos cursos que faço na **Alura**, organizados por trilha, com uma pasta por curso.
 
 ## Trilhas
 
-- [`trilha-devops/`](./trilha-devops) — ✅ concluída
+- [`trilha-devops/`](./trilha-devops)
   - `linux-cli/`
   - `comunicacoes-web/`
   - `git-github/`
@@ -12,4 +12,4 @@ Diário de estudos com as atividades e projetos dos cursos que faço na **Alura 
 
 ## Certificados
 
-Certificados de conclusão em [`certificados/`](./certificados), organizados na mesma estrutura das trilhas.
+Certificados de conclusão em [`certificados/`](./certificados).
