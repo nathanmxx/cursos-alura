@@ -57,4 +57,4 @@ vboxuser@linux:~$ docker run -it -v meu-volume-mysql:/var/lib/mysql -e MYSQL_ROO
 2026-07-23 15:10:14+00:00 [Note] [Entrypoint]: MySQL init process done. Ready for start up.
 ```
 
-`tmpfs` confirmou o que eu esperava: os dados sumiram assim que o container parou de rodar (mesmo retomando o mesmo container com `docker start -ai`, não com um novo) — diferente do bind mount e do volume, que sobrevivem mesmo criando um container novo do zero.
+`tmpfs` confirmou o que eu esperava: os dados sumiram assim que o container parou de rodar (mesmo retomando o mesmo container com `docker start -ai`, não com um novo), diferente do bind mount e do volume, que sobrevivem mesmo criando um container novo do zero.

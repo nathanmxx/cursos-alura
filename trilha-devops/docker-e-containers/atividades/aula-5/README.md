@@ -1,4 +1,4 @@
-# Aula 5 — Coordenando containers e CI/CD
+# Aula 5: Coordenando containers e CI/CD
 
 | Arquivo | O que faz |
 |---|---|

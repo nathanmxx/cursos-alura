@@ -1,4 +1,4 @@
-# Aula 3 — Criando minha própria imagem
+# Aula 3: Criando minha própria imagem
 
 | Arquivo | O que faz |
 |---|---|

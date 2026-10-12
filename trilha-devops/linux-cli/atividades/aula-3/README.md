@@ -1,4 +1,4 @@
-# Aula 3 — Scripts básicos com entrada do usuário
+# Aula 3: Scripts básicos com entrada do usuário
 
 | Arquivo | O que faz |
 |---|---|

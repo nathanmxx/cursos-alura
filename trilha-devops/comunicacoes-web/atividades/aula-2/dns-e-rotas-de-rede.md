@@ -54,4 +54,4 @@ Nome:    www.usp.br
 Address:  143.107.185.15
 ```
 
-Comparando as duas rotas: até a Alura (servidor no Brasil) foram só 9 saltos com ~18ms; até a Universidade de Twente (Holanda) foram 14 saltos e ~186ms — bem mais longe, mais roteadores no caminho.
+Comparando as duas rotas: até a Alura (servidor no Brasil) foram só 9 saltos com ~18ms; até a Universidade de Twente (Holanda) foram 14 saltos e ~186ms, bem mais longe e com mais roteadores no caminho.

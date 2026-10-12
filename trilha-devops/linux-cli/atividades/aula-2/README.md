@@ -1,4 +1,4 @@
-# Aula 2 — Comandos básicos do Linux
+# Aula 2: Comandos básicos do Linux
 
 | Arquivo | O que faz |
 |---|---|

@@ -1,4 +1,4 @@
-# Aula 1 — Comandos básicos do Docker
+# Aula 1: Comandos básicos do Docker
 
 | Arquivo | O que faz |
 |---|---|

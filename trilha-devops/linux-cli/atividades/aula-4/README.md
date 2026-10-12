@@ -1,4 +1,4 @@
-# Aula 4 — Administração do sistema
+# Aula 4: Administração do sistema
 
 | Arquivo | O que faz |
 |---|---|

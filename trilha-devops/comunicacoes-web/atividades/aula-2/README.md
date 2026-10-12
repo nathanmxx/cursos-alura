@@ -1,4 +1,4 @@
-# Aula 2 — Resolução DNS e rotas de rede
+# Aula 2: Resolução DNS e rotas de rede
 
 | Arquivo | O que faz |
 |---|---|

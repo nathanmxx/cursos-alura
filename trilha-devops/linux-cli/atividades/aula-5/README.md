@@ -1,4 +1,4 @@
-# Aula 5 — Compactação de arquivos
+# Aula 5: Compactação de arquivos
 
 | Arquivo | O que faz |
 |---|---|

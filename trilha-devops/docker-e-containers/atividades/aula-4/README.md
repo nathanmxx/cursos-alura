@@ -1,4 +1,4 @@
-# Aula 4 — Persistência de dados
+# Aula 4: Persistência de dados
 
 | Arquivo | O que faz |
 |---|---|

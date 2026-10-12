@@ -1,4 +1,4 @@
-# Aula 2 — Gerenciando containers
+# Aula 2: Gerenciando containers
 
 | Arquivo | O que faz |
 |---|---|

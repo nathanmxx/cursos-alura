@@ -1,4 +1,4 @@
-# Aula 1 — Monitoramento de processos e logs
+# Aula 1: Monitoramento de processos e logs
 
 | Arquivo | O que faz |
 |---|---|

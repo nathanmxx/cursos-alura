@@ -1,4 +1,4 @@
-# Certificados — Trilha DevOps
+# Certificados da Trilha DevOps
 
 | Certificado | Arquivo |
 |---|---|
